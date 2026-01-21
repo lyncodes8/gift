@@ -47,28 +47,36 @@
     <button class="run-btn" id="runBtn">yasser click! →</button>
   </div>
 
-  <script>
-    const button = document.getElementById('runBtn');
-    let tries = 0;
-    const maxTries = 3;
+ <script>
+  const button = document.getElementById('runBtn');
+  let tries = 0;
+  const maxTries = 3;
 
-    button.addEventListener('mouseenter', () => {
-      if(tries < maxTries) {
-        // Move the button to a random position within the viewport
-        const x = Math.random() * (window.innerWidth - button.offsetWidth);
-        const y = Math.random() * (window.innerHeight - button.offsetHeight);
-        button.style.left = x + 'px';
-        button.style.top = y + 'px';
-        tries++;
-      }
-    });
+  // Function to move the button randomly
+  function moveButton() {
+    if (tries < maxTries) {
+      const x = Math.random() * (window.innerWidth - button.offsetWidth);
+      const y = Math.random() * (window.innerHeight - button.offsetHeight);
+      button.style.left = x + 'px';
+      button.style.top = y + 'px';
+      tries++;
+    }
+  }
 
-    button.addEventListener('click', () => {
-      if(tries >= maxTries) {
-        // finally go to final reward page
-        window.location.href = "reward.html";
-      }
-    });
-  </script>
+  // Desktop: hover triggers movement
+  button.addEventListener('mouseenter', moveButton);
+
+  // Mobile: touch triggers movement
+  button.addEventListener('touchstart', moveButton);
+
+  // Click event goes to the final reward page
+  button.addEventListener('click', () => {
+    if (tries >= maxTries) {
+      window.location.href = "reward.html";
+    }
+  });
+</script>
+ 
 </body>
+
 </html>
