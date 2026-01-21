@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Quiz 3 – Cute Adventure</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: linear-gradient(135deg, #B5FFFC, #FFDAB9, #FFDEE9);
+      transition: background 1s;
+    }
+
+    .quiz-container {
+      background: rgba(255,255,255,0.85);
+      padding: 40px;
+      border-radius: 25px;
+      text-align: center;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+      max-width: 400px;
+    }
+
+    h1 {
+      color: #FF69B4;
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    input[type="text"] {
+      padding: 10px;
+      border-radius: 15px;
+      border: 2px solid #FFDAB9;
+      width: 80%;
+      font-size: 1rem;
+    }
+
+    button {
+      padding: 10px 20px;
+      border-radius: 15px;
+      border: none;
+      background-color: #ADD8E6;
+      color: #fff;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: transform 0.2s;
+    }
+
+    button:hover {
+      transform: scale(1.1);
+    }
+
+    .letter {
+      display: none;
+      margin-top: 20px;
+      padding: 20px;
+      background: #fff0f5;
+      border-radius: 20px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      font-size: 1rem;
+      color: #FF69B4;
+      animation: fadeIn 1s forwards;
+      line-height: 1.6;
+    }
+
+    .next-btn {
+      display: none;
+      margin-top: 15px;
+      padding: 8px 16px;
+      background-color: #FFDAB9;
+      color: #FF69B4;
+      border-radius: 15px;
+      font-weight: bold;
+      cursor: pointer;
+      border: none;
+      transition: transform 0.2s;
+    }
+
+    .next-btn:hover {
+      transform: scale(1.05);
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(-10px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+  </style>
+</head>
+<body>
+  <div class="quiz-container">
+    <h1>💖 final quiz baby 💖</h1>
+    <p>What’s my favorite little cute awsome thing that makes me smile and happy? 🍬</p>
+    <input type="text" id="answer" placeholder="Type your answer...">
+    <br>
+    <button onclick="checkAnswer()">Submit</button>
+
+    <div class="letter" id="letter">
+      waaaaaaaaaay ktkoutiiiiii 🌟<br>
+      Just like every little treat, your efforts makes my heart happy hope u there r smiling 💌
+    </div>
+    <button class="next-btn" id="nextBtn" onclick="goNext()">Next Step ➡️</button>
+  </div>
+
+  <script>
+    // multiple acceptable answers
+    const correctAnswers = ["yasser", "Yasser", "me"];
+
+    function checkAnswer() {
+      const userAnswer = document.getElementById('answer').value.toLowerCase().trim();
+      if(correctAnswers.includes(userAnswer)) {
+        document.getElementById('letter').style.display = 'block';
+        document.getElementById('nextBtn').style.display = 'inline-block'; // show Next button
+      } else {
+        alert("Oops! Try again 💖");
+      }
+    }
+
+    function goNext() {
+      window.location.href = "trickyPage.html"; // go to the tricky button page
+    }
+  </script>
+</body>
+</html>
